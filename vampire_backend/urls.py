@@ -17,11 +17,14 @@ from django.contrib import admin
 from django.urls import path
 
 from users.views import LoginView, UserView, RegisterView, LogoutView
+from api.views import HeartList, HeatDetail
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('user/login', LoginView.as_view()),
     path('user/register', RegisterView.as_view()),
     path('user/logout', LogoutView.as_view()),
-    path('user/', UserView.as_view())
+    path('user/', UserView.as_view()),
+    path('heart/', HeartList.as_view()),
+    path('heart/<int:pk>', HeatDetail.as_view())
 ]
